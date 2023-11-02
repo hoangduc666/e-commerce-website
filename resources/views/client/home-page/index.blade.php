@@ -41,25 +41,41 @@
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+<<<<<<< HEAD
                     <h5 class="font-weight-semi-bold m-0">@lang('public.quality product')</h5>
+=======
+                    <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+<<<<<<< HEAD
                     <h5 class="font-weight-semi-bold m-0">@lang('public.free shipping')</h5>
+=======
+                    <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+<<<<<<< HEAD
                     <h5 class="font-weight-semi-bold m-0">@lang('public.14-day return')</h5>
+=======
+                    <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+<<<<<<< HEAD
                     <h5 class="font-weight-semi-bold m-0">@lang('public.24/7 support')</h5>
+=======
+                    <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
                 </div>
             </div>
         </div>
@@ -70,13 +86,18 @@
     <!-- Categories Start -->
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
+<<<<<<< HEAD
                 class="bg-secondary pr-3">@lang('public.categories')</span></h2>
+=======
+                class="bg-secondary pr-3">Categories</span></h2>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         <div class="row px-xl-5 pb-3">
             @foreach($categories as $category)
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                     <a class="text-decoration-none" href="">
                         <div class="cat-item d-flex align-items-center mb-4">
                             <div class="overflow-hidden" style="width: 100px; height: 100px;">
+<<<<<<< HEAD
 {{--                                <img class="img-fluid" src="{{asset('client/img/product-5.jpg')}}" alt="">--}}
                                 @if(\Illuminate\Support\Str::slug($category->name,'_') == 'dien_thoai')
                                     <img class="img-fluid"
@@ -97,6 +118,12 @@
                             </div>
                             <div class="flex-fill pl-3">
                                 <h6>@lang('public.categories.'.\Illuminate\Support\Str::slug($category->name,'_'))</h6>
+=======
+                                <img class="img-fluid" src="{{asset('client/img/product-5.jpg')}}" alt="">
+                            </div>
+                            <div class="flex-fill pl-3">
+                                <h6>{{$category->name}}</h6>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
                                 <small class="text-body">{{ $category->products_sum_quantity }} Products</small>
                             </div>
                         </div>
@@ -110,12 +137,17 @@
 
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">
+<<<<<<< HEAD
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">@lang('public.featured products')</span>
+=======
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured Products</span>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         </h2>
         <div class="row px-xl-5">
             @foreach($products as $product)
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                     <div class="product-item bg-light mb-4">
+<<<<<<< HEAD
                         @if(count($product->discounts) > 0)
                             @foreach($product->discounts as $key => $discount)
                                 @if (\Carbon\Carbon::parse($discount->pivot->expiration_date) >= \Carbon\Carbon::now())
@@ -125,6 +157,8 @@
                                 @endif
                             @endforeach
                         @endif
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
                         <div class="product-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="{{asset('client/img/product-1.jpg')}}" alt="">
                             <div class="product-action">
@@ -138,12 +172,19 @@
                         <div class="text-center py-4">
                             <a class="h6 text-decoration-none text-truncate" href="">{{$product->name}}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
+<<<<<<< HEAD
                                 <h5>${{$product->price_new}}</h5>
                                 @if($product->price_new !== $product->price)
                                     <h6 class="text-muted ml-2">
                                         <del>${{$product->price ?? ''}}</del>
                                     </h6>
                                 @endif
+=======
+                                <h5>${{$product->price}}</h5>
+                                <h6 class="text-muted ml-2">
+                                    <del>$123</del>
+                                </h6>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
                             </div>
                             <div class="d-flex align-items-center justify-content-center mb-1">
                                 <small class="fa fa-star text-primary mr-1"></small>
@@ -151,7 +192,10 @@
                                 <small class="fa fa-star text-primary mr-1"></small>
                                 <small class="fa fa-star text-primary mr-1"></small>
                                 <small class="fa fa-star text-primary mr-1"></small>
+<<<<<<< HEAD
                                 <small class="fa fa-star text-primary mr-1"></small>
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
                                 <small>(99)</small>
                             </div>
                         </div>
@@ -193,7 +237,11 @@
 
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">
+<<<<<<< HEAD
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">@lang('public.recent products')</span>
+=======
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent Products</span>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         </h2>
         <div class="row px-xl-5">
             @foreach($products as $product)
@@ -212,9 +260,15 @@
                         <div class="text-center py-4">
                             <a class="h6 text-decoration-none text-truncate" href="">{{$product->name}}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
+<<<<<<< HEAD
                                 <h5>${{$product->price_new}}</h5>
                                 <h6 class="text-muted ml-2">
                                     <del>${{$product->price}}</del>
+=======
+                                <h5>${{$product->price}}</h5>
+                                <h6 class="text-muted ml-2">
+                                    <del>$123</del>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
                                 </h6>
                             </div>
                             <div class="d-flex align-items-center justify-content-center mb-1">

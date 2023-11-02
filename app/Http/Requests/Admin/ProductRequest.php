@@ -22,6 +22,7 @@ class ProductRequest extends FormRequest
      */
     public function rules(): array
     {
+<<<<<<< HEAD
         if(is_null(request('id'))){
             return [
                 'category_id'=>'required',
@@ -62,13 +63,31 @@ class ProductRequest extends FormRequest
             ],
         ];
 
+=======
+        return [
+            'category_id'=>'required',
+            'name' => 'required|string|regex:/^[a-zA-Z0-9\s%]+/',
+            'price' => 'required|regex:/^\d{1,6}(?:,\d{3})*(?:\.\d{2})?$/|min:1',
+            'description' => 'required',
+            'quantity' => 'required|numeric|min:1', //numeric: kiểm tra giá trị xem có phải số nguyên dương k
+            'slug' => [
+                'required',
+                'string',
+                Rule::unique('products', 'slug')->ignore($this->route('id')),
+                //ignore: giúp bỏ qua id khi được lấy để chỉnh sửa , tránh trường hợp check tồn tại nó và chính nó khi đang update
+            ],
+        ];
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
     }
 
     public function messages(): array
     {
         return [
             'category_id.required' => 'Vui lòng chọn danh mục.',
+<<<<<<< HEAD
             'parent_id.required' => 'Vui lòng chọn danh mục cha cho sản phẩm.',
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
             'name.required' => 'Vui lòng nhập tên sản phẩm.',
             'name.string' => 'Tên sản phẩm phải là chuỗi.',
             'name.regex' => 'Tên sản phẩm chỉ được chứa chữ cái, số và khoảng trắng.',
@@ -81,10 +100,16 @@ class ProductRequest extends FormRequest
             'quantity.min' => 'Số lượng sản phẩm phải lớn hơn hoặc bằng 1.',
             'slug.required' => 'Trường Slug là bắt buộc.',
             'slug.string' => 'Trường Slug phải là một chuỗi.',
+<<<<<<< HEAD
             'attributes.required' => 'Vui lòng nhập các thuộc tính của sản phẩm.',
             'attributes.unique' => 'Kết hợp :attribute đã tồn tại trong sản phẩm khác.',
 
         ];
     }
 
+=======
+            'slug.unique' => 'Slug này đã tồn tại trong hệ thống, vui lòng chọn một giá trị khác.'
+        ];
+    }
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
 }

@@ -64,7 +64,10 @@ class CreateRolePermissionCommand extends Command
             'discount.store',
             'discount.update',
             'discount.delete',
+<<<<<<< HEAD
             'product.copy',
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         ];
 
         // phương thức firstOrCreate không tự động duyệt qua mảng => sử dụng vòng lặp để thực hiện tạo mới cho mỗi phần tử trong mảng permissions

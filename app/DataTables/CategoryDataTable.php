@@ -36,7 +36,11 @@ class CategoryDataTable extends DataTable
                 return view('admins.category.action',compact('item'));
             })
             ->addColumn('parent_id', function ($category) {
+<<<<<<< HEAD
                 return $category->getParentNameAttribute();
+=======
+                return $category->getParentCategoryName();
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
             })
            ->addColumn('created_at',function ($item){
                return Carbon::parse($item->created_at)->format('d/m/Y');

@@ -15,7 +15,11 @@ class Category extends Model
         'quantity_in_stock',
         'quantity_sold',
         'quantity',
+<<<<<<< HEAD
         'order',
+=======
+
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
     ];
 
     // 1 category -> nhiều product và ngc lại
@@ -37,7 +41,11 @@ class Category extends Model
     }
 
     //phương thức giả lấy ra data
+<<<<<<< HEAD
     public function getParentNameAttribute()
+=======
+    public function getParentCategoryName()
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
     {
         return $this->parent ? $this->parent->name : 'N/A';
     }

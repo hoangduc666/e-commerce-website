@@ -22,8 +22,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+<<<<<<< HEAD
         'provider',
         'provider_id'
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
     ];
 
     /**

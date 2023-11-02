@@ -16,10 +16,14 @@
     <link rel="stylesheet" href="{{url('admin/dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{url('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+<<<<<<< HEAD
 
     <link rel="stylesheet" href="https://cdn.datatables.net/autofill/2.6.0/css/autoFill.dataTables.min.css" rel="stylesheet">
 
 {{--    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">--}}
+=======
+    <link href="{{ url('admin/plugins/datatables/datatables.min.css') }}" rel="stylesheet">
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css"/>
 
     <!-- Include SweetAlert2 CSS -->
@@ -87,17 +91,31 @@
 
 <script src="{{url('admin/plugins/jquery/jquery.min.js')}}"></script>
 <script src="{{url('admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<<<<<<< HEAD
 <script src="{{url('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{url('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <script src="{{ url('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+=======
+
+<script src="{{url('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- Include SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="{{ url('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
 
 @yield('lib')
 
 <script src="{{url('admin/dist/js/adminlte.js')}}"></script>
+<<<<<<< HEAD
 <!-- Include SweetAlert2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
 
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
 
 <!-- AdminLTE for demo purposes -->
 {{-- jquery  --}}

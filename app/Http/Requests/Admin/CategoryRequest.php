@@ -25,9 +25,13 @@ class CategoryRequest extends FormRequest
         return [
             'parent_id' => 'nullable',
             'name' => ['required', 'string',
+<<<<<<< HEAD
 //                Rule::unique('categories', 'name')->ignore($this->route('id')),
                 ],
             'slug' => 'required|string',
+=======
+            Rule::unique('categories', 'name')->ignore($this->route('id')),],
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         ];
     }
 
@@ -36,8 +40,12 @@ class CategoryRequest extends FormRequest
         return [
             'name.required' => 'Vui lòng nhập tên danh mục .',
             'name.string' => 'Trường tên chỉ nên chứa các ký tự chữ cái.',
+<<<<<<< HEAD
 //            'name.unique' => 'Tên danh mục đã tồn tại'
             'slug.required' => 'Vui lòng nhập đường dẫn danh mục',
+=======
+            'name.unique' => 'Tên danh mục đã tồn tại'
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         ];
     }
 }

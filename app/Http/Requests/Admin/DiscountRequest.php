@@ -25,7 +25,11 @@ class DiscountRequest extends FormRequest
             'name' => 'nullable|string|max:255',
             'percent_off' => 'required|numeric|min:1',
             'coupon_code' => 'nullable|string',
+<<<<<<< HEAD
 //            'valid_until' => 'nullable|date_format:m/d/Y|after_or_equal:' . now()->format('m/d/Y'),
+=======
+            'valid_until' => 'nullable|date_format:Y-m-d\TH:i',
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         ];
     }
 
@@ -37,8 +41,12 @@ class DiscountRequest extends FormRequest
             'percent_off.numeric' => 'Phần trăm giảm giá phải là một số.',
             'percent_off.min' => 'Phần trăm giảm giá phải lớn hơn hoặc bằng 1.',
             'coupon_code.nullable' => 'Mã giảm giá có thể để trống hoặc là một chuỗi có độ dài tối đa là 10 ký tự.',
+<<<<<<< HEAD
 //            'valid_until.date_format' => 'Định dạng ngày không hợp lệ. Sử dụng định dạng m/d/Y.',
 //            'valid_until.after_or_equal' => 'Ngày phải sau hoặc bằng ngày hiện tại.',
+=======
+            'valid_until.date_format' => 'Thời gian hết hạn không phù hợp với định dạng ngày tháng.',
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         ];
     }
 }

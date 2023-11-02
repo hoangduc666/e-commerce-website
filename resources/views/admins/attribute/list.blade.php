@@ -112,6 +112,7 @@
 
 @push('style')
     <style>
+<<<<<<< HEAD
         #attribute-table_filter{
             display: flex;
             flex-direction: row;
@@ -129,6 +130,8 @@
         .paginate_button{
             padding: 0 10px ;
         }
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         .error-data {
             color: red;
         }

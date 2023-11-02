@@ -32,8 +32,13 @@ class AttributeRequest extends FormRequest
     {
         return [
             'name.required' => 'Vui lòng nhập tên thuộc tính sản phẩm ',
+<<<<<<< HEAD
             'value.required' => 'Vui lòng nhập phân loại thuộc tính sản phẩm',
             'slug.required' => 'Vui lòng nhập đường dẫn thuộc tính sản phẩm',
+=======
+            'value.required' => 'Vui lòng nhập phân loại sản phẩm',
+            'slug.required' => 'Vui lòng nhập đường dẫn sản phẩm',
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         ];
     }
 

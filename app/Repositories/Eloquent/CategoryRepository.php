@@ -27,8 +27,13 @@ class CategoryRepository extends AbstractRepository implements CategoryRepositor
                 $q->whereNull('parent_id');
             })
 
+<<<<<<< HEAD
             ->with(['parent','childrens','childrens.childrens','products'])
             ->orderBy('order','asc');
+=======
+            ->with(['parent','childrens'])
+            ->orderByDesc('id');
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
 
     }
 

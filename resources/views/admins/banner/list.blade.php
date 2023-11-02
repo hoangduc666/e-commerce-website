@@ -122,6 +122,7 @@
         </div>
         @endsection
 
+<<<<<<< HEAD
             @push('style')
                 <style>
                     #banner-table_filter{
@@ -146,6 +147,8 @@
                     }
                 </style>
             @endpush
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         @section('script')
             {{ $dataTable->scripts() }}
 

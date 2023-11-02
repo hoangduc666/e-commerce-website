@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
 Route::prefix('admin')->group(function () {
     Route::get('/login', [\App\Http\Controllers\Admin\Auth\LoginController::class, 'showLoginForm'])->name('admin.showLoginForm');
     Route::post('/login', [\App\Http\Controllers\Admin\Auth\LoginController::class, 'login'])->name('admin.login');
@@ -39,8 +42,11 @@ Route::prefix('admin')->group(function () {
             Route::put('/{id}/update', [\App\Http\Controllers\Admin\ProductController::class, 'update'])->name('update');
             Route::delete('/{id}/delete', [\App\Http\Controllers\Admin\ProductController::class, 'delete'])->name('delete');
             Route::post("{id}/change-status", [\App\Http\Controllers\Admin\ProductController::class, 'changeStatus'])->name("changeStatus");
+<<<<<<< HEAD
             Route::get('/copy/{id}', [\App\Http\Controllers\Admin\ProductController::class, 'copy'])->name('copy');
 
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
         });
         Route::prefix('attribute')->as('attribute.')->group(function () {
             Route::get('/', [\App\Http\Controllers\Admin\AttributeController::class, 'index'])->name('index');
@@ -68,7 +74,10 @@ Route::prefix('admin')->group(function () {
         Route::get('admin/categories/get-category-parent', [\App\Http\Controllers\Admin\CategoryController::class, 'getAllCategory'])->name('category.getCategoryParent');
         Route::get('admin/attributes/get-search-attribute',[\App\Http\Controllers\Admin\AttributeController::class,'getAllAttribute'])->name('attribute.getAllAttribute');
         Route::get('admin/discounts/get-search-discount',[\App\Http\Controllers\Admin\DiscountController::class,'getAllDiscount'])->name('discount.getAllDiscount');
+<<<<<<< HEAD
         Route::get('admin/product/get-product-parent',[\App\Http\Controllers\Admin\ProductController::class,'getAllProduct'])->name('product.getProductParent');
+=======
+>>>>>>> dece221f309a6888873a1349df77751a0356c316
     });
 
 
