@@ -29,20 +29,13 @@ class UserController extends Controller
     public function store(UserStoreRequest $request){
         try {
             DB::beginTransaction();
-<<<<<<< HEAD
             $a = $this->userRepository->insert($request->only(['name','email','password']));
-=======
-            $this->userRepository->insert($request->only(['name','email','password']));
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             DB::commit();
             return response()->json(['success'=>'Thêm thành công']);
         }catch (\Exception $exception){
             DB::rollBack();
-<<<<<<< HEAD
+
             return response()->json(['error'=>$exception->getMessage()],500);
-=======
-            return response()->json(['error'=>$exception->getMessage()],$exception->getCode());
->>>>>>> dece221f309a6888873a1349df77751a0356c316
         }
     }
 

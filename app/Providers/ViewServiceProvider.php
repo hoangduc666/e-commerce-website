@@ -29,12 +29,6 @@ class ViewServiceProvider extends ServiceProvider
     {
         View::composer([
             'client.layout.navbar',
-<<<<<<< HEAD
-=======
-            'client.home-page.index',
-            'client.product.list',
-            'client.product.detail',
->>>>>>> dece221f309a6888873a1349df77751a0356c316
         ],
         ClientViewComposer::class);
     }

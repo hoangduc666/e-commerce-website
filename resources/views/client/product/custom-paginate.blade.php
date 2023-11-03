@@ -4,20 +4,12 @@
             @if ($paginator->onFirstPage())
                 <li class="page-item disabled">
                     <a class="page-link" href="#"
-<<<<<<< HEAD
                        tabindex="-1">@lang('public.previous')</a>
-=======
-                       tabindex="-1">Previous</a>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                 </li>
             @else
                 <li class="page-item"><a class="page-link"
                                          href="{{ $paginator->previousPageUrl() }}">
-<<<<<<< HEAD
                         @lang('public.previous')</a>
-=======
-                        Previous</a>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                 </li>
             @endif
 
@@ -50,11 +42,7 @@
                 </li>
             @else
                 <li class="page-item disabled">
-<<<<<<< HEAD
                     <a class="page-link" href="#">@lang('public.next')</a>
-=======
-                    <a class="page-link" href="#">Next</a>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                 </li>
             @endif
         </ul>

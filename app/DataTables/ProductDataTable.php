@@ -8,11 +8,8 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
@@ -43,39 +40,23 @@ class ProductDataTable extends DataTable
             ->addColumn('action', function ($item) {
                 return view('admins.product.action', compact('item'));
             })
-<<<<<<< HEAD
             ->editColumn('category_id', function ($product) {
-                return $product->getCategoryName();
+                return $product->category_name;
             })
             ->editColumn('parent_id', function ($product) {
                 return $product->parent_name;
-=======
-            ->addColumn('category_id', function ($product) {
-                return $product->getCategoryName();
-            })
-            ->editColumn('created_at', function ($item) {
-                return Carbon::parse($item->created_at)->format('d/m/Y');
-            })
-            ->editColumn('updated_at', function ($item) {
-                return Carbon::parse($item->updated_at)->format('d/m/Y');
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             })
             ->editColumn('is_active', function ($item) {
                 $checked = $item->is_active ? 'checked' : '';
                 return view('admins.product.change-status', compact('item', 'checked'));
             })
             ->editColumn('description',function ($item){
-<<<<<<< HEAD
                 return strip_tags(Str::limit($item->description,100,'...'));
-=======
-                return view('admins.product.action-hide-show',compact('item'));
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             })
             ->addColumn('attributes', function ($item) {
                 $string = '';
                 if (count($item->attributes)) {
                     foreach ($item->attributes as $attribute) {
-<<<<<<< HEAD
                         $string .= '<span class="badge badge-warning">' . $attribute->name . '-' . $attribute->value . ', ' . '</span>';
                     }
 
@@ -88,33 +69,11 @@ class ProductDataTable extends DataTable
                 // Hiển thị chuỗi HTML mà không escape
                 return new HtmlString($string);
             })
-
-
-=======
-                        $string = $string . $attribute->name . '-' . $attribute->value . ', ';
-                    }
-                    // Tìm vị trí của dấu phẩy cuối cùng trong chuỗi
-                    $lastCommaPosition = strrpos($string, ', ');
-                    // Kiểm tra nếu tìm thấy dấu phẩy cuối cùng
-                    if ($lastCommaPosition !== false) {
-                        // Cắt chuỗi từ đầu đến vị trí dấu phẩy cuối cùng bằng cách sử dụng substr
-                        $string = substr($string, 0, $lastCommaPosition);
-                    }
-                }
-
-                return $string;
-            })
-
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             ->addColumn('discounts',function ($item){
                 $string = '';
                 if (count($item->discounts)) {
                     foreach ($item->discounts as $discount) {
-<<<<<<< HEAD
                         $string = $string . $discount->coupon_code . ', ';
-=======
-                        $string = $string . $discount->percent_off . ', ';
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                     }
                     // Tìm vị trí của dấu phẩy cuối cùng trong chuỗi
                     $lastCommaPosition = strrpos($string, ', ');
@@ -126,25 +85,6 @@ class ProductDataTable extends DataTable
                 }
                 return $string;
             })
-
-
-<<<<<<< HEAD
-//            ->addColumn('expiration_date', function ($item) {
-//                $expirationDates = $item->discounts->pluck('pivot.expiration_date');
-//                $formattedDates = [];
-//
-//                foreach ($expirationDates as $date) {
-//                    // Kiểm tra xem ngày có hợp lệ không trước khi định dạng
-//                    if (Carbon::parse($date)->isValid()) {
-//                        $formattedDates[] = Carbon::parse($date)->format('m/d/Y');
-//                    }
-//                }
-//
-//                return implode(', ', $formattedDates);
-//            })
-
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 
             ->rawColumns(['description', 'is_active'])
             ->setRowId('id');
@@ -185,10 +125,7 @@ class ProductDataTable extends DataTable
         return [
             Column::make('id'),
             Column::computed('category_id', 'Category'),
-<<<<<<< HEAD
             Column::computed('parent_id', 'Parent Product'),
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             Column::make('name'),
             Column::make('price'),
             Column::make('quantity'),
@@ -196,16 +133,8 @@ class ProductDataTable extends DataTable
             Column::make('quantity_sold'),
             Column::make('description'),
             Column::make('attributes'),
-<<<<<<< HEAD
             Column::make('discounts'),
             Column::make('is_active'),
-=======
-            Column::make('slug'),
-            Column::make('discounts'),
-            Column::make('is_active'),
-            Column::computed('created_at', 'Created'),
-            Column::computed('updated_at', 'Updated'),
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

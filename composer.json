@@ -10,10 +10,8 @@
         "laravel-lang/lang": "^13.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
-<<<<<<< HEAD
         "laravel/socialite": "^5.9",
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
+
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
         "spatie/laravel-permission": "^5.10",

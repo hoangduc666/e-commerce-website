@@ -4,15 +4,10 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Product;
 use App\Repositories\Contracts\ProductRepositoryInterface;
-
-<<<<<<< HEAD
-=======
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 class ProductRepository extends AbstractRepository implements ProductRepositoryInterface
 {
 
@@ -26,7 +21,6 @@ class ProductRepository extends AbstractRepository implements ProductRepositoryI
         $sort = !empty($data['sort']) ? $data['sort'] : 'asc';
 
 
-<<<<<<< HEAD
         if ($sort !== 'asc' && $sort !== 'desc' && $sort !== 'latest') {
             $sort = 'asc';
         }
@@ -35,13 +29,6 @@ class ProductRepository extends AbstractRepository implements ProductRepositoryI
             ->when(!empty($data['name']), function ($query) use ($data) {
                 $query->where('name', 'like', '%' . $data['name'] . '%');
             })
-=======
-        if($sort !== 'asc' && $sort !== 'desc' && $sort !== 'latest'){
-            $sort = 'asc';
-        }
-
-        return $this->model->query()
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             ->when(!empty($data['price']), function ($query) use ($data) {
                 $priceRange = explode('-', $data['price']);
 
@@ -52,22 +39,14 @@ class ProductRepository extends AbstractRepository implements ProductRepositoryI
                 }
 
             })
-<<<<<<< HEAD
             ->when(!empty($data['slug']), function ($query)  use ($data){
                 $query->where('slug',$data['slug']);
             })->when($sort === 'latest', function ($query) {
-=======
-            ->when($sort === 'latest', function ($query) {
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                 $query->orderByDesc('id');
             })
             ->when($sort !== 'latest', function ($query) use ($sort) {
                 $query->orderBy('price', $sort);
             });
-<<<<<<< HEAD
-
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
     }
 
     public function changeStatus($id)
@@ -83,7 +62,6 @@ class ProductRepository extends AbstractRepository implements ProductRepositoryI
 
     }
 
-<<<<<<< HEAD
     public function copy($id){
         return $this->model->findOrFail($id);
     }
@@ -105,12 +83,4 @@ class ProductRepository extends AbstractRepository implements ProductRepositoryI
     public function detailBySlug($slug){
         return $this->model->where('slug',$slug)->with(['attributes'])->firstOrFail();
     }
-
-
-
-
-
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
-
 }

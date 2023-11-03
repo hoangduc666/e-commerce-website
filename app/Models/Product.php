@@ -2,10 +2,8 @@
 
 namespace App\Models;
 
-<<<<<<< HEAD
 use Carbon\Carbon;
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,28 +23,17 @@ class Product extends Model
         'is_active',
         'slug',
     ];
-<<<<<<< HEAD
-    protected $appends = ['parent_name', 'product_new'];
+    protected $appends = ['parent_name', 'price_new','category_name'];
 
     public function attributes()
     {
         return $this->belongsToMany(Attribute::class, 'products_attributes', 'product_id', 'attribute_id');
-=======
-
-    public function attributes()
-    {
-        return $this->belongsToMany(Attribute::class, 'products_attributes','product_id','attribute_id');
->>>>>>> dece221f309a6888873a1349df77751a0356c316
     }
 
     public function discounts()
     {
-<<<<<<< HEAD
         return $this->belongsToMany(Discount::class, 'products_discounts', 'product_id', 'discount_id')
             ->withPivot('expiration_date');
-=======
-        return $this->belongsToMany(Discount::class, 'products_discounts','product_id','discount_id');
->>>>>>> dece221f309a6888873a1349df77751a0356c316
     }
 
     public function reviews()
@@ -68,13 +55,12 @@ class Product extends Model
     }
 
     //phương thức giả lấy ra data
-    public function getCategoryName()
+    public function getCategoryNameAttribute()
     {
         //dùng hàm optional kiểm tra xem giá trị category có tồn tại hay k => có thì sẽ trả ra name => k thì sẽ 'n/a', ( toán tử truy vấn null (??)
         return optional($this->category)->name ?? 'N/A';
     }
 
-<<<<<<< HEAD
     public function parent()
     {
         return $this->belongsTo(Product::class, 'parent_id');
@@ -93,7 +79,6 @@ class Product extends Model
 
     public function getPriceNewAttribute()
     {
-
         $price = $this->price;
         if ($this->relationLoaded('discounts')) {
             if (count($this->discounts) > 0) {
@@ -107,8 +92,4 @@ class Product extends Model
         }
         return $price;
     }
-
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
-
 }

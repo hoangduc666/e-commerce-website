@@ -22,7 +22,6 @@
         @endif
     </div>
     <div class="card-body">
-<<<<<<< HEAD
         {{ $dataTable->table(['class' => 'table table-bordered table-sm table-hover' ,'style' => 'max-width: 100% !important'],true) }}
 
     </div>
@@ -53,18 +52,7 @@
 
 @section('script')
     {{ $dataTable->scripts() }}
-
     <script>
-
-=======
-        {{ $dataTable->table(['class' => 'table table-bordered table-hover' ,'max-width' => '100%'],true) }}
-    </div>
-@endsection
-
-@section('script')
-    {{ $dataTable->scripts() }}
-    <script>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
            function deleteProduct(e){
                 var productId = $(e).data('id');
                 var url = '{{route('product.delete',':id')}}';

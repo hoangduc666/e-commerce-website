@@ -45,23 +45,6 @@
                                        placeholder="Enter code" name="coupon_code">
                                 <span class="error-code error-data"></span>
                             </div>
-<<<<<<< HEAD
-=======
-                            {{--                            <div class="form-group">--}}
-                            {{--                                <label for="exampleInputName1">Date</label>--}}
-                            {{--                                <input type="datetime-local" id="date-discount" name="valid_until">--}}
-                            {{--                                <span class="error-date error-data"></span>--}}
-                            {{--                            </div>--}}
-                            <div class="form-group">
-                                <label>Date and time:</label>
-                                <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime" name="reservationdatetime" />
-                                    <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                    </div>
-                                </div>
-                            </div>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Percent Off</label>
                                 <input type="number" class="form-control percent-discount" id="percent-discount"
@@ -104,26 +87,6 @@
                                        placeholder="Enter code" name="coupon_code">
                                 <span class="error-code error-data"></span>
                             </div>
-<<<<<<< HEAD
-=======
-                            {{--                            <div class="form-group">--}}
-                            {{--                                <label for="exampleInputName1">Date</label>--}}
-                            {{--                                <input type="datetime-local" id="date-discount-edit" name="valid_until">--}}
-                            {{--                                <span class="error-date error-data"></span>--}}
-                            {{--                            </div>--}}
-{{--                            <div class="form-group">--}}
-{{--                                <label>Date and time range:</label>--}}
-
-{{--                                <div class="input-group">--}}
-{{--                                    <div class="input-group-prepend">--}}
-{{--                                        <span class="input-group-text"><i class="far fa-clock"></i></span>--}}
-{{--                                    </div>--}}
-{{--                                    <input type="text" class="form-control float-right" id="reservationtime">--}}
-{{--                                    <span class="error-date error-data"></span>--}}
-{{--                                </div>--}}
-{{--                                <!-- /.input group -->--}}
-{{--                            </div>--}}
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Percent Off</label>
                                 <input type="number" class="form-control percent-discount-edit"
@@ -146,7 +109,6 @@
     </div>
 @endsection
 @push('style')
-<<<<<<< HEAD
     <style>
         #discount-table_filter{
             display: flex;
@@ -165,11 +127,6 @@
         .paginate_button{
             padding: 0 10px ;
         }
-=======
-{{--    <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">--}}
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" rel="stylesheet">
-    <style>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
         .error-data {
             color: red;
         }
@@ -177,14 +134,7 @@
 @endpush
 
 @section('lib')
-<<<<<<< HEAD
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-=======
-{{--    <script src="{{asset('admin/plugins/moment/moment.min.js')}}"></script>--}}
-
-{{--    <script src="{{asset('admin/plugins/daterangepicker/daterangepicker.js')}}"></script>--}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
     <script src="{{asset('admin/dist/js/demo.js')}}"></script>
 
 @endsection
@@ -194,28 +144,13 @@
 
     <script>
         $(document).ready(function () {
-<<<<<<< HEAD
-=======
-            $('#reservationdatetime').datetimepicker({
-                // format: 'Y-m-d H:i',
-                icons: { time: 'far fa-clock' }
-            });
-
-
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             $('#add-discount-form').on('submit', function (e) {
                 e.preventDefault();
                 $('.error-data').html('');
 
                 var nameValue = $('#name-discount').val();
                 var codeValue = $('#code-discount').val();
-<<<<<<< HEAD
                 var percentValue = $('#percent-discount').val();
-=======
-                var dateValue = $('#date-discount').val();
-                var percentValue = $('#percent-discount').val();
-                console.log(dateValue);
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 
 
                 $('#add-discount-form').validate({
@@ -229,31 +164,11 @@
                         coupon_code: {
                             nullable: true,
                         },
-<<<<<<< HEAD
                     },
                     messages: {
                         percent_off: {
                             required: 'Phần trăm giảm giá là bắt buộc.',
                         },
-=======
-                        valid_until: {
-                            date: true,
-                        },
-                    },
-                    messages: {
-                        name: {
-                            nullable: 'Tên có thể để trống hoặc là một chuỗi có độ dài tối đa là 255 ký tự.'
-                        },
-                        percent_off: {
-                            required: 'Phần trăm giảm giá là bắt buộc.',
-                        },
-                        coupon_code: {
-                            nullable: 'Mã giảm giá có thể để trống hoặc là một chuỗi có độ dài tối đa là 10 ký tự.',
-                        },
-                        valid_until: {
-                            date: 'Thời gian hết hạn phải là ngày tháng hợp lệ.',
-                        },
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                     }
                 });
 
@@ -264,10 +179,6 @@
                         name: nameValue,
                         percent_off: percentValue,
                         coupon_code: codeValue,
-<<<<<<< HEAD
-=======
-                        valid_until: dateValue,
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                     },
                     success: function () {
                         $('#exampleModal').modal('hide');
@@ -292,12 +203,6 @@
                         if (response.responseJSON.errors.coupon_code) {
                             $('.error-code').append(response.responseJSON.errors.coupon_code[0]);
                         }
-<<<<<<< HEAD
-=======
-                        if (response.responseJSON.errors.valid_until) {
-                            $('.error-date').append(response.responseJSON.errors.valid_until[0]);
-                        }
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                     }
                 });
             });
@@ -311,50 +216,19 @@
 
                 var nameValue = $('#name-discount-edit').val();
                 var codeValue = $('#code-discount-edit').val();
-<<<<<<< HEAD
-=======
-                var dateValue = $('#date-discount-edit').val();
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                 var percentValue = $('#percent-discount-edit').val();
 
 
                 $('#edit-discount-form').validate({
                     rules: {
-<<<<<<< HEAD
-=======
-                        name: {
-                            nullable: true,
-                        },
-                        coupon_code: {
-                            nullable: true,
-                        },
-                        valid_until: {
-                            date: true,
-                        },
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                         percent_off: {
                             required: true,
                         },
                     },
                     messages: {
-<<<<<<< HEAD
                         percent_off: {
                             required: 'Phần trăm giảm giá là bắt buộc.',
                         },
-=======
-                        name: {
-                            nullable: 'Tên có thể để trống hoặc là một chuỗi có độ dài tối đa là 255 ký tự.'
-                        },
-                        percent_off: {
-                            required: 'Phần trăm giảm giá là bắt buộc.',
-                        },
-                        coupon_code: {
-                            nullable: 'Mã giảm giá có thể để trống hoặc là một chuỗi có độ dài tối đa là 10 ký tự.',
-                        },
-                        valid_until: {
-                            date: 'Thời gian hết hạn phải là ngày tháng hợp lệ.',
-                        },
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                     }
                 });
 
@@ -364,10 +238,6 @@
                     data: {
                         name: nameValue,
                         coupon_code: codeValue,
-<<<<<<< HEAD
-=======
-                        valid_until: dateValue,
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                         percent_off: percentValue,
                     },
                     success: function () {
@@ -393,7 +263,6 @@
                         if (response.responseJSON.errors.coupon_code) {
                             $('.error-code').append(response.responseJSON.errors.coupon_code[0]);
                         }
-<<<<<<< HEAD
                     }
                 });
             });
@@ -403,14 +272,6 @@
             // });
             //
 
-=======
-                        if (response.responseJSON.errors.valid_until) {
-                            $('.error-date').append(response.responseJSON.errors.valid_until[0]);
-                        }
-                    }
-                });
-            });
->>>>>>> dece221f309a6888873a1349df77751a0356c316
         });
 
         function editDiscount(e) {
@@ -421,10 +282,6 @@
             $('#id-discount-edit').val(discountId);
             $('#name-discount-edit').val(data.name);
             $('#code-discount-edit').val(data.coupon_code);
-<<<<<<< HEAD
-=======
-            $('#date-discount-edit').val(data.valid_until);
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             $('#percent-discount-edit').val(data.percent_off);
 
             $('#exampleModalEdit').modal('show');
@@ -476,11 +333,4 @@
         }
     </script>
 @endsection
-<<<<<<< HEAD
 
-=======
-@section('lib')
-    {{--validate js--}}
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-@endsection
->>>>>>> dece221f309a6888873a1349df77751a0356c316

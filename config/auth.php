@@ -73,19 +73,16 @@ return [
             'model' => App\Models\Admin::class,
         ],
 
-<<<<<<< HEAD
          'socialite' => [
              'drivers' => [
                  'google',
                  'facebook',
              ],
          ],
-=======
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
->>>>>>> dece221f309a6888873a1349df77751a0356c316
     ],
 
     /*

@@ -2,12 +2,8 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\CheckAjaxRequest;
 use App\Http\Middleware\CheckRolePermission;
-<<<<<<< HEAD
 use App\Http\Middleware\Locale;
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -42,10 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-<<<<<<< HEAD
             Locale::class,
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
         ],
 
         'api' => [

@@ -16,10 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('coupon_code')->nullable();
             $table->integer('percent_off');
-<<<<<<< HEAD
-=======
             $table->timestamp('valid_until')->nullable();
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             $table->timestamps();
         });
     }

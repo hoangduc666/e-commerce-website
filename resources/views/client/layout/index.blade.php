@@ -7,11 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-<<<<<<< HEAD
     <meta name="csrf-token" content="{{ csrf_token() }}">
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
-
     <!-- Favicon -->
     <link href="{{asset('client/img/favicon.ico')}}" rel="icoasset()">
 
@@ -28,7 +24,6 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{asset('client/css/style.css')}}" rel="stylesheet">
-<<<<<<< HEAD
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" rel="stylesheet">
 
 {{--    <style>--}}
@@ -36,9 +31,6 @@
 {{--            --}}
 {{--        }--}}
 {{--    </style>--}}
-
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 </head>
 
 <body>
@@ -67,14 +59,8 @@
 
 
 <!-- JavaScript Libraries -->
-<<<<<<< HEAD
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-
-=======
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 <script src="{{asset('client/lib/easing/easing.min.js')}}"></script>
 <script src="{{asset('client/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
@@ -85,7 +71,6 @@
 <!-- Template Javascript -->
 <script src="{{asset('client/js/main.js')}}"></script>
 <script src="{{asset('client/js/custom.js')}}"></script>
-<<<<<<< HEAD
 
 <script>
     $.ajaxSetup({
@@ -96,8 +81,6 @@
 </script>
 
 @yield('script')
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 </body>
 
 </html>

@@ -6,14 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Attribute;
 use App\Models\Category;
 use App\Models\Product;
-<<<<<<< HEAD
 use App\Repositories\Contracts\BannerRepositoryInterface;
 use App\Repositories\Contracts\CategoryRepositoryInterface;
 use App\Repositories\Contracts\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class HomePageController extends Controller
 {
@@ -52,28 +50,10 @@ class HomePageController extends Controller
 
     }
 
-=======
-use Illuminate\Http\Request;
-
-class HomePageController extends Controller
-{
-    public function index(){
-        return view('client.home-page.index');
-    }
-
-    public function show(){
-        return view('client.product.list');
-    }
-
-    public function showDetail(){
-        return view('client.product.detail');
-    }
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 
     public function showCart(){
         return view('client.checkouts.cart');
     }
-<<<<<<< HEAD
     protected function calculateQuantity($category)
     {
         $totalQuantity = $category->products->sum('quantity');
@@ -84,9 +64,6 @@ class HomePageController extends Controller
 
         return $totalQuantity;
     }
-
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 
     public function showCheckout(){
         return view('client.checkouts.checkout');

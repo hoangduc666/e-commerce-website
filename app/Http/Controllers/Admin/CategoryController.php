@@ -42,11 +42,7 @@ class CategoryController extends Controller
     {
         try {
             DB::beginTransaction();
-<<<<<<< HEAD
             $this->categoryRepository->insert($request->only(['parent_id','name','order']));
-=======
-            $this->categoryRepository->insert($request->only(['parent_id','name']));
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             DB::commit();
             return response()->json(['success'=>'Thành công']);
         }catch (\Exception $exception)
@@ -58,11 +54,7 @@ class CategoryController extends Controller
 
     public function update(CategoryRequest $request,$id)
     {
-<<<<<<< HEAD
         $categoryData = $request->only(['parent_id', 'name','order']);
-=======
-        $categoryData = $request->only(['parent_id', 'name']);
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 
         try {
             DB::beginTransaction();

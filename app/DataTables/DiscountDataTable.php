@@ -76,10 +76,6 @@ class DiscountDataTable extends DataTable
             ->width(300),
             Column::make('coupon_code'),
             Column::make('percent_off'),
-<<<<<<< HEAD
-=======
-            Column::computed('valid_until','Date'),
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')

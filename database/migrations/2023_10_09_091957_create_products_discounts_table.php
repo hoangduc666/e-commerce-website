@@ -15,11 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('discount_id');
-<<<<<<< HEAD
             $table->timestamp('expiration_date');
-=======
             $table->timestamps();
->>>>>>> dece221f309a6888873a1349df77751a0356c316
         });
     }
 

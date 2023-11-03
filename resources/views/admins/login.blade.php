@@ -10,30 +10,18 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset('admin/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="{{ asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href=" {{ asset('admin/dist/css/adminlte.min.css') }}">
-=======
-    <link rel="stylesheet" href="../../admin/plugins/fontawesome-free/css/all.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="../../admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../admin/dist/css/adminlte.min.css">
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-<<<<<<< HEAD
             <a href="#" class="h1"><b>Login</b>Admin</a>
-=======
-            <a href="../../index2.html" class="h1"><b>Login</b>LTE</a>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
         </div>
         <div class="card-body">
             <p class="login-box-msg">Sign in to start your session</p>
@@ -85,8 +73,6 @@
                 </div>
             </form>
 
-<<<<<<< HEAD
-
 {{--            <div class="social-auth-links text-center mb-3">--}}
 {{--                <p>- OR -</p>--}}
 {{--                <a href="#" class="btn btn-block btn-primary">--}}
@@ -96,16 +82,6 @@
 {{--                    <i class="fab fa-google-plus mr-2"></i> Sign in using Google+--}}
 {{--                </a>--}}
 {{--            </div>--}}
-=======
-            <div class="social-auth-links text-center mt-2 mb-3">
-                <a href="#" class="btn btn-block btn-primary">
-                    <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                </a>
-                <a href="#" class="btn btn-block btn-danger">
-                    <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                </a>
-            </div>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             <!-- /.social-auth-links -->
 
             <p class="mb-1">
@@ -122,18 +98,10 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<<<<<<< HEAD
 <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('admin/dist/js/adminlte.min.js')}}"></script>
-=======
-<script src="../../admin/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../admin/dist/js/adminlte.min.js"></script>
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 </body>
 </html>

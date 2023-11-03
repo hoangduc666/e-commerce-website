@@ -172,10 +172,6 @@ return [
         \App\Providers\RepositoryServiceProvider::class,
         \App\Providers\ViewServiceProvider::class,
         \App\Providers\ObserverServiceProvider::class,
-<<<<<<< HEAD
-//        Laravel\Socialite\SocialiteServiceProvider::class,
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
     ])->toArray(),
 
     /*
@@ -191,10 +187,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-<<<<<<< HEAD
-//        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
     ])->toArray(),
 
 ];

@@ -56,15 +56,12 @@
                                    placeholder="Enter name" name="name">
                             <span class="error-category error-data"></span>
                         </div>
-<<<<<<< HEAD
                         <div class="form-group">
                             <label for="exampleInputName1">Order</label>
                             <input type="number" class="form-control order-category" id="order-category"
                                    placeholder="Enter order" name="order" value="1" min="1">
                             <span class="error-order error-data"></span>
                         </div>
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -104,15 +101,12 @@
                                    placeholder="Enter name" name="name">
                             <span class="error-category error-data"></span>
                         </div>
-<<<<<<< HEAD
                         <div class="form-group">
                             <label for="exampleInputName1">Order</label>
                             <input type="number" class="form-control order-category-edit" id="order-category-edit"
                                    placeholder="Enter order" name="order" value="1" min="1">
                             <span class="error-order error-data"></span>
                         </div>
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -130,7 +124,6 @@
 
 @push('style')
     <style>
-<<<<<<< HEAD
         #category-table_filter{
             display: flex;
             flex-direction: row;
@@ -148,8 +141,6 @@
         .paginate_button{
             padding: 0 10px ;
         }
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
         .error-data {
             color: red;
         }
@@ -219,36 +210,24 @@
 
                 var parentValue = $('#name-parent').val();
                 var categoryValue = $('#name-category').val();
-<<<<<<< HEAD
                 var orderValue = $('#order-category').val();
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
 
 
                 if (categoryValue === '') {
                     $('.error-category').text('Vui lòng nhập tên danh mục');
                 }
-<<<<<<< HEAD
                 if (orderValue === '') {
                     $('.error-order').text('Vui lòng nhập thứ tự ưu tiên danh mục');
                 }
 
                 if (categoryValue !== '' && orderValue !== '' ) {
-=======
-
-                if (categoryValue !== '') {
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                     $.ajax({
                         url: "{{ route('category.store') }}",
                         method: "POST",
                         data: {
                             parent_id: parentValue,
-<<<<<<< HEAD
                             name: categoryValue,
                             order: orderValue,
-=======
-                            name: categoryValue
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                         },
                         success: function () {
 
@@ -269,12 +248,9 @@
                             if (response.responseJSON.errors.name) {
                                 $('.error-category').append(response.responseJSON.errors.name[0]);
                             }
-<<<<<<< HEAD
                             if (response.responseJSON.errors.order) {
                                 $('.error-order').append(response.responseJSON.errors.order[0]);
                             }
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                         }
                     });
                 }
@@ -291,36 +267,24 @@
 
                 var parentValue = $('#name-parent-edit').val();
                 var categoryValue = $('#name-category-edit').val();
-<<<<<<< HEAD
                 var orderValue = $('#order-category-edit').val();
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
-
 
                 if (categoryValue === '') {
                     $('.error-category').text('Vui lòng nhập tên danh mục');
                 }
-
-<<<<<<< HEAD
 
                 if (orderValue === '') {
                     $('.error-order').text('Vui lòng nhập thứ tự ưu tiên danh mục');
                 }
 
                 if (categoryValue !== '' && orderValue !== '' ) {
-=======
-                if (categoryValue !== '') {
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                     $.ajax({
                         url: url,
                         method: "PUT",
                         data: {
                             parent_id: parentValue,
                             name: categoryValue,
-<<<<<<< HEAD
                             order: orderValue,
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                         },
                         success: function () {
 
@@ -341,12 +305,9 @@
                             if (response.responseJSON.errors.name) {
                                 $('.error-category').append(response.responseJSON.errors.name[0]);
                             }
-<<<<<<< HEAD
                             if (response.responseJSON.errors.order) {
                                 $('.error-order').append(response.responseJSON.errors.order[0]);
                             }
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
                         }
                     });
                 }
@@ -364,10 +325,7 @@
             var newOption = new Option(rowData.parent_id,$(e).data('parent_id'), true, true);
             $('#name-parent-edit').append(newOption).trigger('change');
             $('#name-category-edit').val(rowData.name);
-<<<<<<< HEAD
             $('#order-category-edit').val(rowData.order);
-=======
->>>>>>> dece221f309a6888873a1349df77751a0356c316
             $('#id-category-edit').val(categoryId);
 
 
@@ -427,12 +385,6 @@
     </script>
 @endsection
 @section('lib')
-<<<<<<< HEAD
-=======
-    {{--validate js--}}
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-
->>>>>>> dece221f309a6888873a1349df77751a0356c316
     {{-- select 2 js --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 @endsection
