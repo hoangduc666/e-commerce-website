@@ -27,7 +27,6 @@ class CategoryRequest extends FormRequest
             'name' => ['required', 'string',
 //                Rule::unique('categories', 'name')->ignore($this->route('id')),
                 ],
-            'slug' => 'required|string',
         ];
     }
 
@@ -37,7 +36,6 @@ class CategoryRequest extends FormRequest
             'name.required' => 'Vui lòng nhập tên danh mục .',
             'name.string' => 'Trường tên chỉ nên chứa các ký tự chữ cái.',
 //            'name.unique' => 'Tên danh mục đã tồn tại'
-            'slug.required' => 'Vui lòng nhập đường dẫn danh mục',
         ];
     }
 }

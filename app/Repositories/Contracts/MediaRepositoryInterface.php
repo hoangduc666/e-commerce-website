@@ -7,6 +7,5 @@ interface MediaRepositoryInterface extends BaseRepositoryInterface
 
     public function uploadFile($file,$folder);
 
-
 }
 

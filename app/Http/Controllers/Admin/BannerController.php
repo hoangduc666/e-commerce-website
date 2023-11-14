@@ -74,7 +74,7 @@ class BannerController extends Controller
                   Storage::disk('public')->delete(optional($banner->media)->path);
                }
                 $file = $this->mediaRepository->uploadFile($request->image_path, 'banner');
-                $this->mediaRepository->update($id, [
+                    $this->mediaRepository->update($id, [
                     'mediaable_id' => $banner->id,
                     'mediaable_type' => Banner::class,
                     'path' => $file

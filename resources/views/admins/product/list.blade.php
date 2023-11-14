@@ -125,35 +125,35 @@
                });
            }
 
-           function showDescription(e) {
-               var btnShowMore = $(e);
-               var descriptionContainer = btnShowMore.closest('.description');
-               var shortDescription = descriptionContainer.find('.short-description');
-               var fullDescription = descriptionContainer.find('.full-description');
-               var btnClose = descriptionContainer.find('.btn-close');
+           // function showDescription(e) {
+           //     var btnShowMore = $(e);
+           //     var descriptionContainer = btnShowMore.closest('.description');
+           //     var shortDescription = descriptionContainer.find('.short-description');
+           //     var fullDescription = descriptionContainer.find('.full-description');
+           //     var btnClose = descriptionContainer.find('.btn-close');
+           //
+           //
+           //     shortDescription.hide();
+           //     fullDescription.show();
+           //     btnShowMore.hide();
+           //     btnClose.show();
+           //
+           // }
 
-
-               shortDescription.hide();
-               fullDescription.show();
-               btnShowMore.hide();
-               btnClose.show();
-
-           }
-
-           function hideDescription(e) {
-               var btnClose = $(e);
-               var descriptionContainer = btnClose.closest('.description');
-               var shortDescription = descriptionContainer.find('.short-description');
-               var fullDescription = descriptionContainer.find('.full-description');
-               var btnShowMore = descriptionContainer.find('.btn-show-more');
-
-
-               shortDescription.show();
-               fullDescription.hide();
-               btnClose.hide();
-               btnShowMore.show();
-
-           }
+           // function hideDescription(e) {
+           //     var btnClose = $(e);
+           //     var descriptionContainer = btnClose.closest('.description');
+           //     var shortDescription = descriptionContainer.find('.short-description');
+           //     var fullDescription = descriptionContainer.find('.full-description');
+           //     var btnShowMore = descriptionContainer.find('.btn-show-more');
+           //
+           //
+           //     shortDescription.show();
+           //     fullDescription.hide();
+           //     btnClose.hide();
+           //     btnShowMore.show();
+           //
+           // }
 
     </script>
 @endsection

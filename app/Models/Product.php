@@ -6,6 +6,7 @@ use Carbon\Carbon;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
@@ -22,6 +23,7 @@ class Product extends Model
         'quantity_sold',
         'is_active',
         'slug',
+        'alt_text',
     ];
     protected $appends = ['parent_name', 'price_new','category_name'];
 
@@ -92,4 +94,14 @@ class Product extends Model
         }
         return $price;
     }
+
+    public function media()
+    {
+        return $this->morphMany(Media::class, 'mediaable');
+    }
+
+//    public function getImagePathsAttribute()
+//    {
+//        return !is_null(optional($this->media)->path) ? Storage::url(optional($this->media)->path) :'';
+//    }
 }

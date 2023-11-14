@@ -20,6 +20,8 @@ interface BaseRepositoryInterface
     public function destroy(array $ids);
 
     public function edit($id);
+    public function insertMulti(array $datas);
+
 
 }
 

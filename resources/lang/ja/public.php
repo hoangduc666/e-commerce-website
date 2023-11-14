@@ -72,8 +72,7 @@ return [
     'categories.dell' => 'DELL',
     'categories.apple_watch' => 'Apple Watch',
     'categories.huawei' => 'Huawei',
-
+    'categories.tai_nghe' => 'ヘッドホン',
+    'categories.loa' => 'スピーカー',
 ];
-
-
 ?>

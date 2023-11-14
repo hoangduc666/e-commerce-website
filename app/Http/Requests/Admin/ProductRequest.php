@@ -37,6 +37,7 @@ class ProductRequest extends FormRequest
                 'slug' => 'required|string',
                 'discount' => 'nullable',
                 'expiration_date' => 'nullable',
+                'alt_text' => 'nullable',
 //                Rule::unique('products_attributes', 'attributes')
 //                    ->where('name', request('name'))
 //                    ->ignore($this->route('id')),

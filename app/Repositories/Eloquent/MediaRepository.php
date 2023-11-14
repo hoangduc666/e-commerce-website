@@ -24,7 +24,5 @@ class MediaRepository extends AbstractRepository implements MediaRepositoryInter
             $path = Storage::disk('public')->put($folder, $file);
         }
         return $path;
-
     }
-
 }

@@ -71,6 +71,9 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('media')->group(function () {
         Route::post('upload', [\App\Http\Controllers\Admin\MediaController::class, 'uploadFile'])->name('media.upload-file');
+        Route::get('dropzone', [\App\Http\Controllers\Admin\MediaController::class, 'dropzoneIndex'])->name('media.dropzoneIndex');
+        Route::post('dropzone/upload', [\App\Http\Controllers\Admin\MediaController::class, 'dropzoneUpload'])->name('media.dropzoneUpload');
+        Route::delete('dropzone/delete/{id}', [\App\Http\Controllers\Admin\MediaController::class, 'dropzoneDelete'])->name('media.dropzoneDelete');
     });
 
     Route::get('/dashboard', [\App\Http\Controllers\Admin\Auth\LoginController::class, 'dashboard'])->name('admin.dashboard');

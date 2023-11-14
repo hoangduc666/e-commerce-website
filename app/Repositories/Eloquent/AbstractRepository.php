@@ -3,7 +3,6 @@
 namespace App\Repositories\Eloquent;
 
 
-use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
@@ -67,6 +66,12 @@ abstract class AbstractRepository
     public function edit($id)
     {
         return $this->model->findOrFail($id);
+    }
+
+    public function insertMulti(array $datas)
+    {
+        $this->model->insert($datas);
+        return 1;
     }
 
 }

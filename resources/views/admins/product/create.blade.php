@@ -62,11 +62,33 @@
                    placeholder="Enter slug" name="slug">
             <span class="error-message">{{ $errors->first('slug') }}</span>
         </div>
+        <DIV id="dropzone">
+            <label for="exampleInputName1">Image Product</label>
+            <div enctype="multipart/form-data" id="recommendationDiv">
+                <div class="form-group">
+                    <div class="needsclick dropzone" id="document-dropzone">
+                        <span class="dz-message needsclick">
+                            Drop files here or click to upload
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </DIV>
+        <div class="form-group">
+            <label for="exampleInputName1">Alt Text</label>
+            <input type="text" class="form-control text-product" id="text-product"
+                   placeholder="Enter text" name="alt_text">
+            <span class="error-message">{{ $errors->first('alt_text') }}</span>
+        </div>
         <div class="form-group">
             <label for="exampleInputName1">Description</label>
             <textarea class="form-control description-product" rows="3" placeholder="Enter description ..."
                       id="description" name="description"></textarea>
             <span class="error-message">{{ $errors->first('description') }}</span>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
         <div class="form-group">
             <div class="form-group">
@@ -77,17 +99,13 @@
             </div>
             <div class="form-group" id="discountDisplayArea">
 
-
             </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
     </form>
 @endsection
 
 @push('style')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
           rel="stylesheet">
     <style>
@@ -102,14 +120,29 @@
         /*.select2-container--default{*/
         /*    max-width: 100% !important;*/
         /*}*/
+        .dropzone {
+            background: white;
+            border-radius: 5px;
+            border: 2px dashed rgb(0, 135, 247);
+            border-image: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .dz-message{
+            display: flex;
+            justify-content: center;
+        }
     </style>
 @endpush
 
 @section('lib')
+    {{-- dropzone js  --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     {{-- select 2 js --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
     <script src="{{asset('admin/dist/js/demo.js')}}"></script>
 @endsection
 
@@ -137,7 +170,6 @@
                     allowClear: true,
                 })
             });
-
 
             $('#parent-id').select2({
                 ajax: ({
@@ -205,9 +237,6 @@
 
             // $('#datepicker').datepicker();
 
-
-
-
             $('#addDiscountBtn').on('click', function () {
                 // Tạo một số duy nhất để thêm vào id
                 let uniqueId = Date.now();
@@ -263,9 +292,35 @@
                 // Kích hoạt datepicker cho các trường ngày
                 $('.form-control[name="expiration_date[]"]').datepicker();
             });
-
-
         });
+
+
+
+        var uploadedDocumentMap = {}
+        Dropzone.options.documentDropzone = {
+            url: "{{ route('media.dropzoneUpload') }}",
+            maxFilesize: 20, // MB
+            acceptedFiles: 'image/*',
+            addRemoveLinks: true,
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            success: function (file, response) {
+                $('form').append('<input type="hidden" name="image_path[]" value="' + response.image + '">');
+                uploadedDocumentMap[file.name] = response.name;
+                console.log(response)
+            },
+            removedfile: function (file) {
+                file.previewElement.remove()
+                var name = ''
+                if (typeof file.file_name !== 'undefined') {
+                    name = file.file_name
+                } else {
+                    name = uploadedDocumentMap[file.name]
+                }
+                $('form').find('input[name="document[]"][value="' + name + '"]').remove()
+            },
+        }
 
     </script>
 @endsection
