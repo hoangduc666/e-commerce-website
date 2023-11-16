@@ -152,7 +152,6 @@
 {{--                            </div>--}}
 {{--                        @endforeach--}}
 
-
                         @foreach($categories as $category)
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -207,10 +206,10 @@
                             <span class="badge text-secondary border border-secondary rounded-circle"
                                   style="padding-bottom: 2px;">0</span>
                         </a>
-                        <a href="" class="btn px-0 ml-3">
+                        <a href="{{route('product.showCart')}}" class="btn px-0 ml-3">
                             <i class="fas fa-shopping-cart text-primary"></i>
                             <span class="badge text-secondary border border-secondary rounded-circle"
-                                  style="padding-bottom: 2px;">0</span>
+                                  style="padding-bottom: 2px;">{{ count((array) session('cart')) }}</span>
                         </a>
                     </div>
                 </div>

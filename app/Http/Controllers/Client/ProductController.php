@@ -43,6 +43,16 @@ class ProductController extends Controller
         return view('client.product.detail', compact('product', 'products'));
     }
 
+    public function checkProductStock($slug) {
+        $product = Product::where('slug', $slug)->firstOrFail();
+        $hasStock = false;
 
+        if (is_null($product->parent_id)) {
+            $hasStock = Product::where('parent_id' , $product->id)
+                ->where('quantity_in_stock', '>', 0)
+                ->exists();
+        }
+        return response()->json(['hasStock' => $hasStock]);
+    }
 }
 

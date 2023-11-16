@@ -75,5 +75,6 @@ return [
     'categories.huawei' => 'Huawei',
     'categories.tai_nghe' => 'Tai nghe',
     'categories.loa' => 'Loa',
+    'related products' => 'Những sản phẩm tương tự',
 ];
 ?>

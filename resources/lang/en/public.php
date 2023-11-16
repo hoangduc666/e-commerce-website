@@ -55,6 +55,7 @@ return [
     'previous' => 'Previous',
     'next' => 'Next',
     'reviews' => 'Reviews',
+    'related products' => 'related products',
     'add to cart' => 'Add To Cart',
     'coming soon' => 'Coming soon',
     'description' => 'Description',

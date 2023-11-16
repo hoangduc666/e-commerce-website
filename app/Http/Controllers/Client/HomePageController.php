@@ -49,11 +49,6 @@ class HomePageController extends Controller
         return redirect()->back();
 
     }
-
-
-    public function showCart(){
-        return view('client.checkouts.cart');
-    }
     protected function calculateQuantity($category)
     {
         $totalQuantity = $category->products->sum('quantity');

@@ -74,5 +74,6 @@ return [
     'categories.huawei' => 'Huawei',
     'categories.tai_nghe' => 'ヘッドホン',
     'categories.loa' => 'スピーカー',
+    'related products' => '関連製品',
 ];
 ?>

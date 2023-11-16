@@ -76,7 +76,11 @@ class DatabaseSeeder extends Seeder
 //            'name' => 'Flash Sale - Giảm 50% cho đơn hàng đầu tiên',
 //            'percent_off' => 50,
 //        ]);
-//
+
+//        $user = User::where('email','duchoangsky28@gmail.com')->firstOrFail();
+//        $user->update([
+//            'password' => Hash::make('123456'),
+//        ]);
 
     }
 }
