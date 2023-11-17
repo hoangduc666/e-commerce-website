@@ -276,9 +276,9 @@
                     return $(this).data('id');
                 }).get();
 
-                var remainingQuantity = {{ $product->quantity_in_stock }} ;
+                {{--var remainingQuantity = {{ $product->quantity_in_stock }} ;--}}
 
-                $('#remainingProductsCount').text('Số lượng còn lại: ' + remainingQuantity);
+                // $('#remainingProductsCount').text('Vượt quá số lượng');
 
 
                 $.ajax({
@@ -292,9 +292,11 @@
                         if (response.check) {
                             $('#add-to-card').show();
                             $('#coming-soon').hide();
+                            $('#quantityInput').show()
                         } else {
                             $('#coming-soon').show();
                             $('#add-to-card').hide();
+                            $('#quantityInput').hide();
                         }
                     },
                     error: function (xhr, status, error) {
@@ -302,19 +304,17 @@
                     }
                 });
             })
+            $('#quantityInput').on('change', function () {
+                var maxQuantity = parseInt($(this).attr('max'));
+                var enteredQuantity = parseInt($(this).val());
 
-            {{--$('#quantityInput').on('input', function () {--}}
-            {{--    var selectedQuantity = $(this).val();--}}
-
-            {{--    var quantityInStock = {{ $product->quantity_in_stock }};--}}
-
-            {{--    // Tính toán số lượng còn lại dựa trên số lượng trong kho thay vì số cố định 1000--}}
-            {{--    var remainingQuantity = quantityInStock - selectedQuantity;--}}
-
-            {{--    // Hiển thị số lượng còn lại--}}
-            {{--    $('#remainingProductsCount').text('Số lượng còn lại: ' + remainingQuantity);--}}
-            {{--});--}}
-
+                if (enteredQuantity > maxQuantity) {
+                    $('#remainingProductsCount').text('Quá hạn mức thêm số lượng sản phẩm');
+                    $(this).val(maxQuantity);
+                } else {
+                    $('#remainingProductsCount').empty();
+                }
+            });
         })
 
         if ($('#coming-soon').css('display') !== 'none') {
