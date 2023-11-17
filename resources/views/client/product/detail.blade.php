@@ -41,7 +41,7 @@
             </div>
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
-                        <h3>{{$product->name}}</h3>
+                    <h3>{{$product->name}}</h3>
                     <div class="d-flex mb-3">
                         <div class="text-primary mr-2">
                             <small class="fas fa-star"></small>
@@ -61,8 +61,11 @@
                                 <form>
                                     @foreach($attributes as $keyAttr => $attribute)
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" class="custom-control-input" id="{{ $key }}-{{$attribute->id}}" name="{{ $key }}">
-                                            <label class="custom-control-label" for="{{ $key }}-{{$attribute->id}}">{{$attribute->value}}</label>
+                                            <input type="radio" class="custom-control-input"
+                                                   id="{{ $key }}-{{$attribute->id}}" name="{{ $key }}"
+                                                   data-id="{{$attribute->id}}">
+                                            <label class="custom-control-label"
+                                                   for="{{ $key }}-{{$attribute->id}}">{{$attribute->value}}</label>
                                         </div>
                                     @endforeach
                                 </form>
@@ -70,29 +73,35 @@
                         @endforeach
                     @endif
                     <div class="d-flex align-items-center mb-4 pt-2">
-                        <div class="input-group quantity mr-3" style="width: 130px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-primary btn-minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input type="text" class="form-control bg-secondary border-0 text-center" value="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
+                        <div class="input-group quantity mr-3" style="width: 25%;">
+{{--                            <div class="input-group-btn">--}}
+{{--                                <button class="btn btn-primary btn-minus">--}}
+{{--                                    <i class="fa fa-minus"></i>--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                            <input type="number" class="form-control bg-secondary border-0 text-center" value="1">--}}
+                            <input type="number" id="quantityInput" value="0" min="0" max="100" class="form-control bg-secondary border-0 text-center">
+{{--                            <div class="input-group-btn">--}}
+{{--                                <button class="btn btn-primary btn-plus">--}}
+{{--                                    <i class="fa fa-plus"></i>--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
                         </div>
                         <div style="display: block">
-                            <a href="{{ route('product.addProductCart', $product->id) }}" id="add-to-card" class="btn btn-primary px-3">
+                            <a href="{{ route('product.addProductCart', $product->id) }}" id="add-to-card"
+                               class="btn btn-primary px-3">
                                 <i class="fa fa-shopping-cart mr-1"></i>
                                 @lang('public.add to cart')
                             </a>
                             <button id="coming-soon" class="btn btn-primary px-3">
-                                <img src="https://cdn-icons-png.flaticon.com/128/11871/11871072.png" style="width: 60px; height: 60px">
+                                <img src="https://cdn-icons-png.flaticon.com/128/11871/11871072.png"
+                                     style="width: 60px; height: 60px">
                                 @lang('public.coming soon')
                             </button>
                         </div>
+                    </div>
+                    <div id="remainingProductsCount" style="color: red">
+
                     </div>
                     <div class="d-flex pt-2">
                         <strong class="text-dark mr-2">@lang('public.share on'):</strong>
@@ -118,22 +127,25 @@
             <div class="col">
                 <div class="bg-light p-30">
                     <div class="nav nav-tabs mb-4">
-                        <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">@lang('public.description')</a>
-                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">@lang('public.information')</a>
-                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">@lang('public.reviews') (0)</a>
+                        <a class="nav-item nav-link text-dark active" data-toggle="tab"
+                           href="#tab-pane-1">@lang('public.description')</a>
+                        <a class="nav-item nav-link text-dark" data-toggle="tab"
+                           href="#tab-pane-2">@lang('public.information')</a>
+                        <a class="nav-item nav-link text-dark" data-toggle="tab"
+                           href="#tab-pane-3">@lang('public.reviews') (0)</a>
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-pane-1">
-                                <p>{!! $product->description !!}</p>
+                            <p>{!! $product->description !!}</p>
                         </div>
                         <div class="tab-pane fade" id="tab-pane-2">
                             <div class="row">
                                 <div class="col-md-6">
                                     <ul class="list-group list-group-flush">
                                         @foreach($product->attributes as $attribute)
-                                                <li class="list-group-item px-0">
-                                                    {{ $attribute->name }}
-                                                </li>
+                                            <li class="list-group-item px-0">
+                                                {{ $attribute->name }}
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -152,7 +164,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="media mb-4">
-                                        <img src="{{asset('client/img/user.jpg')}}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <img src="{{asset('client/img/user.jpg')}}" alt="Image"
+                                             class="img-fluid mr-3 mt-1" style="width: 45px;">
                                         <div class="media-body">
                                             <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
                                             <div class="text-primary mb-2">
@@ -162,13 +175,16 @@
                                                 <i class="fas fa-star-half-alt"></i>
                                                 <i class="far fa-star"></i>
                                             </div>
-                                            <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
+                                            <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam
+                                                ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod
+                                                ipsum.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <h4 class="mb-4">Leave a review</h4>
-                                    <small>Your email address will not be published. Required fields are marked *</small>
+                                    <small>Your email address will not be published. Required fields are marked
+                                        *</small>
                                     <div class="d-flex my-3">
                                         <p class="mb-0 mr-2">Your Rating * :</p>
                                         <div class="text-primary">
@@ -208,7 +224,8 @@
 
     <!-- Products Start -->
     <div class="container-fluid py-5">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">@lang('public.related products')</span></h2>
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
+                class="bg-secondary pr-3">@lang('public.related products')</span></h2>
         <div class="row px-xl-5">
             <div class="col">
                 <div class="owl-carousel related-carousel">
@@ -217,16 +234,21 @@
                             <div class="product-img position-relative overflow-hidden">
                                 <img class="img-fluid w-100" src="{{asset('client/img/product-9.jpg')}}" alt="">
                                 <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i
+                                            class="fa fa-shopping-cart"></i></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i
+                                            class="fa fa-sync-alt"></i></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
                             <div class="text-center py-4">
                                 <a class="h6 text-decoration-none text-truncate" href="">{{$pro->name}}</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>{{$pro->price}}</h5><h6 class="text-muted ml-2"><del>$123</del></h6>
+                                    <h5>{{$pro->price}}</h5>
+                                    <h6 class="text-muted ml-2">
+                                        <del>$123</del>
+                                    </h6>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center mb-1">
                                     <small class="fa fa-star text-primary mr-1"></small>
@@ -248,18 +270,26 @@
 
 @section('script')
     <script>
-        $(document).ready(function() {
-            $('input[type=radio]').on('change', function() {
-                var selectedAttributeValue = $(this).attr('id');
-                console.log(selectedAttributeValue);
+        $(document).ready(function () {
+            $('input[type=radio]').on('change', function () {
+                var checkedRadios = $('input[type=radio]:checked').map(function (e) {
+                    return $(this).data('id');
+                }).get();
+
+                var remainingQuantity = {{ $product->quantity_in_stock }} ;
+
+                $('#remainingProductsCount').text('Số lượng còn lại: ' + remainingQuantity);
+
+
                 $.ajax({
                     type: 'GET',
-                    url: '{{ route('client.checkProductStock', [$product->slug]) }}',
+                    url: '{{ route('client.checkProductStock') }}',
                     data: {
-                        attributeValue: selectedAttributeValue
+                        attributes: checkedRadios,
+                        parent_id: {{ $product->id }},
                     },
-                    success: function(response) {
-                        if (response.hasStock) {
+                    success: function (response) {
+                        if (response.check) {
                             $('#add-to-card').show();
                             $('#coming-soon').hide();
                         } else {
@@ -267,14 +297,26 @@
                             $('#add-to-card').hide();
                         }
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
 
                     }
                 });
-            });
+            })
 
+            {{--$('#quantityInput').on('input', function () {--}}
+            {{--    var selectedQuantity = $(this).val();--}}
 
-        });
+            {{--    var quantityInStock = {{ $product->quantity_in_stock }};--}}
+
+            {{--    // Tính toán số lượng còn lại dựa trên số lượng trong kho thay vì số cố định 1000--}}
+            {{--    var remainingQuantity = quantityInStock - selectedQuantity;--}}
+
+            {{--    // Hiển thị số lượng còn lại--}}
+            {{--    $('#remainingProductsCount').text('Số lượng còn lại: ' + remainingQuantity);--}}
+            {{--});--}}
+
+        })
+
         if ($('#coming-soon').css('display') !== 'none') {
             $('#coming-soon').hide();
         }

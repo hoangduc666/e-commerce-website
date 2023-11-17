@@ -32,8 +32,8 @@ class ProductController extends Controller
                     $query->where('name', 'storage')->where('value', $request->storage);
                 })
                     ->orWhere(function ($query) use ($request) {
-                    $query->where('name', 'colors')->where('value', $request->colors);
-                });
+                        $query->where('name', 'colors')->where('value', $request->colors);
+                    });
             })->get();
             dd($a);
         }
@@ -43,16 +43,22 @@ class ProductController extends Controller
         return view('client.product.detail', compact('product', 'products'));
     }
 
-    public function checkProductStock($slug) {
-        $product = Product::where('slug', $slug)->firstOrFail();
-        $hasStock = false;
+    public function checkProductStock(Request $request)
+    {
+        $attributes = $request->get('attributes', []);
+        $parent = $request->get('parent_id', null);
 
-        if (is_null($product->parent_id)) {
-            $hasStock = Product::where('parent_id' , $product->id)
-                ->where('quantity_in_stock', '>', 0)
-                ->exists();
-        }
-        return response()->json(['hasStock' => $hasStock]);
+        $check = Product::query()->when(count($attributes), function ($query) use ($attributes) {
+            $query->whereHas('attributes', function ($q) use ($attributes) {
+                foreach ($attributes as $value) {
+                    $q->where('attributes.id', $value);
+                }
+            });
+        })->when($parent, function ($query) use ($parent) {
+            $query->where('parent_id', $parent);
+        })->where('quantity_in_stock', '>', 0)->exists();
+        return response()->json(['check' => $check]);
     }
+
 }
 

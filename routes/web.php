@@ -32,7 +32,7 @@ Route::group([],function () {
     Route::get('/', [\App\Http\Controllers\Client\HomePageController::class, 'index'])->name('home.index');
     Route::get('/shop/list', [\App\Http\Controllers\Client\ProductController::class, 'list'])->name('product.show');
     Route::get('/shop/detail/{slug}', [\App\Http\Controllers\Client\ProductController::class, 'detail'])->name('product.detail');
-    Route::post('/get-product-attributes', [\App\Http\Controllers\Client\ProductController::class, 'getProductAttribute'])->name('product.getProductAttribute');
+//    Route::post('/get-related-product', [\App\Http\Controllers\Client\ProductController::class, 'getRelatedProduct'])->name('product.getProductAttribute');
     Route::get('/shop/cart', [\App\Http\Controllers\Client\CartController::class, 'showCart'])->name('product.showCart');
     Route::get('/shop/{id}', [\App\Http\Controllers\Client\CartController::class, 'addProductCart'])->name('product.addProductCart');
     Route::patch('/update-shopping-cart', [\App\Http\Controllers\Client\CartController::class, 'updateCart'])->name('product.updateCart');
@@ -43,7 +43,7 @@ Route::group([],function () {
 
 
     Route::prefix('ajax')->group(function () {
-        Route::get('/shop/detail/check-product-stock/{slug}', [\App\Http\Controllers\Client\ProductController::class, 'checkProductStock'])->name('client.checkProductStock');
+        Route::get('/shop/detail/check-product-stock', [\App\Http\Controllers\Client\ProductController::class, 'checkProductStock'])->name('client.checkProductStock');
     });
 
 });
