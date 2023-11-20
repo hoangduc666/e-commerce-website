@@ -44,13 +44,16 @@
                                 </td>
                                 <td data-th="Price">${{ $details['price'] }}</td>
                                 <td data-th="Quantity" class="text-center">{{ $details['quantity'] }}</td>
-                                <td data-th="Total" class="text-center"></td>
+                                <td data-th="Total" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
                                 <td class="align-middle">
                                     <a class="btn btn-sm btn-danger" id="delete-product">
                                         <i class="fa fa-times"></i>
                                     </a>
                                 </td>
                             </tr>
+                            @php
+                                $total = $total + ($details['price'] * $details['quantity']);
+                            @endphp
                         @endforeach
                     @endif
                     </tbody>
@@ -92,13 +95,13 @@
 @endsection
 
 @push('style')
-    {{-- laravel alertifyJs css  --}}
+{{--     laravel alertifyJs css--}}
     <link rel="stylesheet" href="https://alertifyjs.com/build/css/alertify.css"/>
     <link rel="stylesheet" href="https://alertifyjs.com/build/css/themes/default.css"/>
 @endpush
 
 @section('script')
-{{-- laravel alertifyJs js  --}}
+{{-- laravel alertifyJs js--}}
     <script src="https://alertifyjs.com/build/alertify.js"></script>
     <script type="text/javascript">
         $(".edit-cart-info").change(function (e) {
@@ -142,3 +145,4 @@
         });
     </script>
 @endsection
+

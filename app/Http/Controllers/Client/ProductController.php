@@ -27,7 +27,7 @@ class ProductController extends Controller
     {
         $product = $this->productRepository->detailBySlug($slug);
         if (!empty($request->storage) && !empty($request->colors)) {
-            $a = Product::whereHas('attributes', function ($q) use ($request) {
+            Product::whereHas('attributes', function ($q) use ($request) {
                 $q->where(function ($query) use ($request) {
                     $query->where('name', 'storage')->where('value', $request->storage);
                 })
@@ -35,10 +35,7 @@ class ProductController extends Controller
                         $query->where('name', 'colors')->where('value', $request->colors);
                     });
             })->get();
-            dd($a);
         }
-
-
         $products = $this->productRepository->getParentProductAttribute($product->parent_id); // lẩy ra parent_id các sp tương tư
         return view('client.product.detail', compact('product', 'products'));
     }
@@ -56,9 +53,9 @@ class ProductController extends Controller
             });
         })->when($parent, function ($query) use ($parent) {
             $query->where('parent_id', $parent);
-        })->where('quantity_in_stock', '>', 0)->exists();
-        return response()->json(['check' => $check]);
+        })->where('quantity_in_stock', '>', 0)->first();
+
+        return optional($check)->slug ?? '';
     }
 
 }
-

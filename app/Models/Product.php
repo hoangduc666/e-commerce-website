@@ -100,8 +100,4 @@ class Product extends Model
         return $this->morphMany(Media::class, 'mediaable');
     }
 
-//    public function getImagePathsAttribute()
-//    {
-//        return !is_null(optional($this->media)->path) ? Storage::url(optional($this->media)->path) :'';
-//    }
 }

@@ -15,12 +15,13 @@ class CartController extends Controller
     {
         $product = Product::findOrFail($id);
         $cart = session()->get('cart', []);
+        $quantity = request()->get('quantity');
         if(isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+            $cart[$id]['quantity']+= $quantity;
         } else {
             $cart[$id] = [
                 "name" => $product->name,
-                "quantity" => $product->quantity,
+                "quantity" => $quantity,
                 "price" => $product->price,
                 "image" => $product->image_path
             ];

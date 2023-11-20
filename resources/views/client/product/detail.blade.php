@@ -47,7 +47,7 @@
                             <small class="fas fa-star"></small>
                             <small class="fas fa-star"></small>
                             <small class="fas fa-star"></small>
-                            <small class="fas fa-star-half-alt"></small>`
+                            <small class="fas fa-star-half-alt"></small>
                             <small class="far fa-star"></small>
                         </div>
                         <small class="pt-1">(99 @lang('public.reviews'))</small>
@@ -61,7 +61,7 @@
                                 <form>
                                     @foreach($attributes as $keyAttr => $attribute)
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" class="custom-control-input"
+                                            <input type="radio" class="custom-control-input attribute-radio"
                                                    id="{{ $key }}-{{$attribute->id}}" name="{{ $key }}"
                                                    data-id="{{$attribute->id}}">
                                             <label class="custom-control-label"
@@ -74,22 +74,13 @@
                     @endif
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 25%;">
-{{--                            <div class="input-group-btn">--}}
-{{--                                <button class="btn btn-primary btn-minus">--}}
-{{--                                    <i class="fa fa-minus"></i>--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                            <input type="number" class="form-control bg-secondary border-0 text-center" value="1">--}}
-                            <input type="number" id="quantityInput" value="0" min="0" max="100" class="form-control bg-secondary border-0 text-center">
-{{--                            <div class="input-group-btn">--}}
-{{--                                <button class="btn btn-primary btn-plus">--}}
-{{--                                    <i class="fa fa-plus"></i>--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
+                            <input type="number" id="quantityInput" value="0" min="0" max="100"
+                                   class="form-control bg-secondary border-0 text-center">
                         </div>
                         <div style="display: block">
-                            <a href="{{ route('product.addProductCart', $product->id) }}" id="add-to-card"
-                               class="btn btn-primary px-3">
+                            <a href="{{ route('product.addProductCart', ['id' => $product->id, 'quantity' => '']) }}"
+                               data-url="{{ route('product.addProductCart', ['id' => $product->id, 'quantity' => '']) }}"
+                               id="add-to-cart" class="btn btn-primary px-3">
                                 <i class="fa fa-shopping-cart mr-1"></i>
                                 @lang('public.add to cart')
                             </a>
@@ -276,11 +267,6 @@
                     return $(this).data('id');
                 }).get();
 
-                {{--var remainingQuantity = {{ $product->quantity_in_stock }} ;--}}
-
-                // $('#remainingProductsCount').text('Vượt quá số lượng');
-
-
                 $.ajax({
                     type: 'GET',
                     url: '{{ route('client.checkProductStock') }}',
@@ -289,14 +275,13 @@
                         parent_id: {{ $product->id }},
                     },
                     success: function (response) {
-                        if (response.check) {
-                            $('#add-to-card').show();
-                            $('#coming-soon').hide();
-                            $('#quantityInput').show()
-                        } else {
+                        if (response.trim() === '') {
                             $('#coming-soon').show();
-                            $('#add-to-card').hide();
+                            $('#add-to-cart').hide();
                             $('#quantityInput').hide();
+                        } else {
+                            // Redirect product detail
+                            window.location.href = '{{ route('product.detail', ['slug' => ':slug']) }}'.replace(':slug', response.trim());
                         }
                     },
                     error: function (xhr, status, error) {
@@ -304,9 +289,18 @@
                     }
                 });
             })
+
             $('#quantityInput').on('change', function () {
                 var maxQuantity = parseInt($(this).attr('max'));
                 var enteredQuantity = parseInt($(this).val());
+                var quantity = $(this).val();
+                var dataUrl = $('#add-to-cart').data('url');
+
+                // update quantity vào url
+                $('#add-to-cart').attr('href', dataUrl.replace('quantity=', 'quantity=' + quantity));
+
+                // update số lượng vào Add to Cart
+                $('#add-to-cart').attr('quantity', quantity);
 
                 if (enteredQuantity > maxQuantity) {
                     $('#remainingProductsCount').text('Quá hạn mức thêm số lượng sản phẩm');
@@ -315,6 +309,7 @@
                     $('#remainingProductsCount').empty();
                 }
             });
+
         })
 
         if ($('#coming-soon').css('display') !== 'none') {

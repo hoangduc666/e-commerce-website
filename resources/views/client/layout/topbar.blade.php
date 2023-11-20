@@ -41,7 +41,6 @@
                                 <span class="{{ $localzation['icon'] ?? '' }}"></span> {{$localzation['name'] ?? ''}}
                             </a>
                         @endforeach
-
 {{--                        <a class="dropdown-item" type="button" href="{{ route('user.change-language', ['lange' => 'en']) }}">--}}
 {{--                            <span class="flag-icon flag-icon-us"></span> English--}}
 {{--                        </a>--}}
