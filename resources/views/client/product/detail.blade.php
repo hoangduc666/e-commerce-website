@@ -18,18 +18,13 @@
             <div class="col-lg-5 mb-30">
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner bg-light">
-                        <div class="carousel-item active">
-                            <img class="img-fluid w-100" src="{{asset('client/img/product-1.jpg')}}" alt="">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="img-fluid" src="{{asset('client/img/product-5.jpg')}}" alt="">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="img-fluid" src="{{asset('client/img/bg-w.webp')}}" alt="">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="img-fluid" src="{{asset('client/img/bg-hp.jpg')}}" alt="">
-                        </div>
+                        @foreach($product->media as $key => $prod)
+                            <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                                <img class="img-fluid w-100"
+                                     src="{{ asset(\Illuminate\Support\Facades\Storage::url($prod->path)) }}"
+                                     alt="{{ $product->alt_text }}">
+                            </div>
+                        @endforeach
                     </div>
                     <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
                         <i class="fa fa-2x fa-angle-left text-dark"></i>
@@ -78,8 +73,8 @@
                                    class="form-control bg-secondary border-0 text-center">
                         </div>
                         <div style="display: block">
-                            <a href="{{ route('product.addProductCart', ['id' => $product->id, 'quantity' => '']) }}"
-                               data-url="{{ route('product.addProductCart', ['id' => $product->id, 'quantity' => '']) }}"
+                            <a href="{{ route('product.addProductCart', ['slug' => $product->slug, 'quantity' => '']) }}"
+                               data-url="{{ route('product.addProductCart', ['slug' => $product->slug, 'quantity' => '']) }}"
                                id="add-to-cart" class="btn btn-primary px-3">
                                 <i class="fa fa-shopping-cart mr-1"></i>
                                 @lang('public.add to cart')

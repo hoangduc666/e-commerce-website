@@ -31,7 +31,7 @@ Route::group([],function () {
     Route::get('/shop/list', [\App\Http\Controllers\Client\ProductController::class, 'list'])->name('product.show');
     Route::get('/shop/detail/{slug}', [\App\Http\Controllers\Client\ProductController::class, 'detail'])->name('product.detail');
     Route::get('/shop/cart', [\App\Http\Controllers\Client\CartController::class, 'showCart'])->name('product.showCart');
-    Route::get('/shop/{id}', [\App\Http\Controllers\Client\CartController::class, 'addProductCart'])->name('product.addProductCart');
+    Route::get('/shop/{slug}', [\App\Http\Controllers\Client\CartController::class, 'addProductCart'])->name('product.addProductCart');
     Route::patch('/update-shopping-cart', [\App\Http\Controllers\Client\CartController::class, 'updateCart'])->name('product.updateCart');
     Route::delete('/delete-cart-product', [\App\Http\Controllers\Client\CartController::class, 'deleteProduct'])->name('product.deleteProduct');
     Route::get('/shop/checkout', [\App\Http\Controllers\Client\HomePageController::class, 'showCheckout'])->name('product.showCheckout');

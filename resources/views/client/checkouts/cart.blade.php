@@ -23,6 +23,7 @@
                     <thead class="thead-dark">
                     <tr>
                         <th>Products</th>
+                        <th>Image</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Total</th>
@@ -35,16 +36,17 @@
                         @foreach(session('cart') as $id => $details)
                             <tr rowId="{{ $id }}">
                                 <td data-th="Product">
-                                    <div class="row">
-                                        <div class="col-sm-3 hidden-xs"><img src="{{ $details['image'] }}" class="card-img-top"/></div>
-                                        <div class="col-sm-9">
-                                            <h4 class="nomargin">{{ $details['name'] }}</h4>
-                                        </div>
-                                    </div>
+                                    <h4 style="font-size: 15px">{{ $details['name'] }}</h4>
+                                </td>
+                                <td data-th="Image">
+                                    <img style="width: 80%; height: 40px"
+                                         src="{{ asset(\Illuminate\Support\Facades\Storage::url( $details['image'][0]->path)) }}"
+                                         class="card-img-top" alt="{{$details['alt_text']}}"/>
                                 </td>
                                 <td data-th="Price">${{ $details['price'] }}</td>
                                 <td data-th="Quantity" class="text-center">{{ $details['quantity'] }}</td>
-                                <td data-th="Total" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
+                                <td data-th="Total" class="text-center">
+                                    ${{ $details['price'] * $details['quantity'] }}</td>
                                 <td class="align-middle">
                                     <a class="btn btn-sm btn-danger" id="delete-product">
                                         <i class="fa fa-times"></i>
@@ -68,7 +70,8 @@
                         </div>
                     </div>
                 </form>
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span></h5>
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span>
+                </h5>
                 <div class="bg-light p-30 mb-5">
                     <div class="border-bottom pb-2">
                         <div class="d-flex justify-content-between mb-3">
@@ -85,7 +88,8 @@
                             <h5>Total</h5>
                             <h5>$160</h5>
                         </div>
-                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
+                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout
+                        </button>
                     </div>
                 </div>
             </div>
@@ -95,13 +99,13 @@
 @endsection
 
 @push('style')
-{{--     laravel alertifyJs css--}}
+    {{--     laravel alertifyJs css--}}
     <link rel="stylesheet" href="https://alertifyjs.com/build/css/alertify.css"/>
     <link rel="stylesheet" href="https://alertifyjs.com/build/css/themes/default.css"/>
 @endpush
 
 @section('script')
-{{-- laravel alertifyJs js--}}
+    {{-- laravel alertifyJs js--}}
     <script src="https://alertifyjs.com/build/alertify.js"></script>
     <script type="text/javascript">
         $(".edit-cart-info").change(function (e) {
@@ -133,12 +137,12 @@
                     id: ele.parents("tr").attr("rowId")
                 },
                 success: function (response) {
-                    alertify.set('notifier','position', 'top-right');
-                    alertify.set('notifier','delay', 10);
+                    alertify.set('notifier', 'position', 'top-right');
+                    alertify.set('notifier', 'delay', 10);
                     alertify.success('Thành Công')
                     window.location.reload();
                 },
-                error: function (){
+                error: function () {
                     alertify.error('Xóa sản phẩm không thành công');
                 }
             });

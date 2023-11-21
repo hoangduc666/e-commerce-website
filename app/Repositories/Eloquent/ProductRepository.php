@@ -81,6 +81,6 @@ class ProductRepository extends AbstractRepository implements ProductRepositoryI
     }
 
     public function detailBySlug($slug){
-        return $this->model->where('slug',$slug)->with(['attributes'])->firstOrFail();
+        return $this->model->where('slug',$slug)->with(['attributes','media'])->firstOrFail();
     }
 }

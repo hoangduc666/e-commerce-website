@@ -4,30 +4,39 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Repositories\Contracts\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    protected $productRepository;
+
+    public function __construct(ProductRepositoryInterface $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
+
     public function showCart(){
         return view('client.checkouts.cart');
     }
-    public function addProductCart($id)
+    public function addProductCart($slug)
     {
-        $product = Product::findOrFail($id);
+        $product = $this->productRepository->detailBySlug($slug);
         $cart = session()->get('cart', []);
         $quantity = request()->get('quantity');
-        if(isset($cart[$id])) {
-            $cart[$id]['quantity']+= $quantity;
+        if(isset($cart[$slug])) {
+            $cart[$slug]['quantity']+= $quantity;
         } else {
-            $cart[$id] = [
+            $cart[$slug] = [
                 "name" => $product->name,
                 "quantity" => $quantity,
                 "price" => $product->price,
-                "image" => $product->image_path
+                "image" => $product->media,
+                "alt_text" => $product->alt_text,
             ];
         }
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product has been added to cart!');
+        return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
     }
 
     public function updateCart(Request $request)
@@ -36,7 +45,7 @@ class CartController extends Controller
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
-            session()->flash('success', 'Product added to cart.');
+            session()->flash('success', 'Sản phẩm đã được thêm vào giỏ hàng.');
         }
     }
 
@@ -48,7 +57,7 @@ class CartController extends Controller
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
-            session()->flash('success', 'Product successfully deleted.');
+            session()->flash('success', 'Sản phẩm đã được xoá thành công.');
         }
     }
 }
