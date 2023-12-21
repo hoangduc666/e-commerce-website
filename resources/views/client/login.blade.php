@@ -29,13 +29,13 @@
             <form action="{{ route('user.login') }}" method="post">
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control @error('name') is-invalid @enderror" name="email" placeholder="Email">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
                         </div>
                     </div>
-                    @error('name')
+                    @error('email')
                     <div class="is-invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
